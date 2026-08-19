@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# TypeScript build output
+/dist/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Cucumber reports
+/reports/**
+!/reports/.gitkeep
+
+# Failure screenshots
+/screenshots/**
+!/screenshots/.gitkeep
+
+# Environment files
+.env
+.env.*
+!.env.example
