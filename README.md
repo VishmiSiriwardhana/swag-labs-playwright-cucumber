@@ -1,25 +1,71 @@
-# Swag Labs Automation Testing
+# Swag Labs – Playwright + TypeScript + Cucumber Automation Framework
 
-Automated end-to-end testing framework for the **Swag Labs** application using **Playwright, TypeScript, Cucumber BDD, and Page Object Model (POM)**.
+## 📌 Project Overview
 
-The framework is designed to demonstrate maintainable and scalable UI automation practices, reusable page objects, BDD scenarios, test data management, tagging, reporting, and failure screenshot capture.
+This project is an end-to-end test automation framework developed for the **Swag Labs** web application using **Playwright, TypeScript, and Cucumber BDD**.
 
-## 🚀 Tech Stack
+The framework follows the **Page Object Model (POM)** design pattern and includes reusable page classes, Cucumber step definitions, test data management, hooks, reporting, and GitHub Actions CI/CD integration.
 
-- **Language:** TypeScript
-- **Automation Tool:** Playwright
-- **BDD Framework:** Cucumber
-- **Test Runner:** Cucumber
-- **Design Pattern:** Page Object Model (POM)
-- **Test Data:** JSON
-- **Package Manager:** npm
-- **Runtime:** Node.js
-- **Version Control:** Git / GitHub
+The project demonstrates practical automation testing concepts including functional testing, negative testing, data-driven testing, tagging, reusable components, and continuous integration.
 
-## 📁 Project Structure
+---
+
+## 🛠️ Technology Stack
+
+
+| Technology     | Purpose                         |
+| -------------- | ------------------------------- |
+| Playwright     | Browser automation              |
+| TypeScript     | Programming language            |
+| Cucumber       | BDD test framework              |
+| Gherkin        | Feature and scenario definition |
+| Node.js        | Runtime environment             |
+| npm            | Dependency management           |
+| Git            | Version control                 |
+| GitHub         | Source code repository          |
+| GitHub Actions | CI/CD automation                |
+
+
+---
+
+## 🏗️ Framework Architecture
+
+The framework follows the **Page Object Model (POM)** architecture.
 
 ```text
-Swag Labs/
+Feature Files
+     ↓
+Step Definitions
+     ↓
+Page Objects
+     ↓
+Playwright
+     ↓
+Swag Labs Application
+
+```
+
+### Main Components
+
+- **Feature Files** – Define test scenarios using Gherkin syntax.
+- **Step Definitions** – Connect Gherkin steps with automation code.
+- **Page Objects** – Encapsulate page locators and reusable actions.
+- **Custom World** – Provides shared Playwright browser, page, and page-object instances.
+- **Hooks** – Manage browser and test setup/cleanup.
+- **Test Data** – Stores reusable login and checkout data.
+- **Cucumber Configuration** – Controls test execution, reporting, and timeouts.
+- **GitHub Actions** – Automatically executes the test suite in CI.
+
+---
+
+## 📂 Project Structure
+
+```text
+swag-labs-playwright-cucumber/
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 │
 ├── features/
 │   ├── cart.feature
@@ -30,11 +76,8 @@ Swag Labs/
 │
 ├── src/
 │   ├── data/
-│   │   ├── users.json
-│   │   └── checkoutData.json
-│   │
-│   ├── fixtures/
-│   │   └── .gitkeep
+│   │   ├── checkoutData.json
+│   │   └── users.json
 │   │
 │   ├── hooks/
 │   │   └── hooks.ts
@@ -50,10 +93,10 @@ Swag Labs/
 │   │   └── ProductDetailsPage.ts
 │   │
 │   ├── step-definitions/
-│   │   ├── login.steps.ts
-│   │   ├── inventory.steps.ts
 │   │   ├── cart.steps.ts
-│   │   └── checkout.steps.ts
+│   │   ├── checkout.steps.ts
+│   │   ├── inventory.steps.ts
+│   │   └── login.steps.ts
 │   │
 │   ├── support/
 │   │   └── world.ts
@@ -71,138 +114,101 @@ Swag Labs/
 ├── cucumber.js
 ├── package.json
 ├── package-lock.json
-├── playwright.config.ts
+├── README.md
 └── tsconfig.json
 
 ```
 
+---
+
 ## 🧪 Test Coverage
 
-The framework currently covers the following areas:
+The framework covers the following functional areas:
 
-### Login
+### 🔐 Login
 
 - Valid user login
+- Invalid login scenarios
 - Locked-out user validation
-- Invalid login credentials
 - Data-driven login testing
 
-### Inventory
+### 🛒 Shopping Cart
 
 - Add products to cart
-- Product sorting
-- Product details validation
-- Multiple product selection
-
-### Shopping Cart
-
-- View added products
+- View products in cart
+- Add multiple products
+- Remove products from cart
 - Verify cart item count
-- Remove products
-- Verify products in cart
-- Proceed to checkout
 
-### Checkout
+### 📦 Product Inventory
 
-- Checkout page validation
-- Customer information entry
-- Required field validation
-- Checkout overview validation
-- Order total validation
-- Complete product purchase
-- Order confirmation
+- Sort products by name
+- Sort products by price
+- Verify product details
+- Verify product name
+- Verify product description
+- Verify product price
+
+### 💳 Checkout
+
+- Navigate to checkout
+- Enter customer information
+- Validate required fields
+- Verify checkout overview
+- Verify order total
+- Complete successful purchase
+- Verify order confirmation
+
+---
 
 ## 🏷️ Test Tags
 
-Cucumber tags are used to categorize tests.
+Cucumber tags are used to organize test execution.
 
-### Smoke Tests
 
-```bash
-npm run test:smoke
+| Tag           | Purpose                           |
+| ------------- | --------------------------------- |
+| `@smoke`      | Critical functionality            |
+| `@regression` | Regression test suite             |
+| `@e2e`        | End-to-end business flows         |
+| `@negative`   | Negative and validation scenarios |
 
-```
 
-Runs scenarios tagged with:
+---
 
-```text
-@smoke
+## ▶️ Installation
 
-```
-
-### Regression Tests
-
-```bash
-npm run test:regression
-
-```
-
-Runs scenarios tagged with:
-
-```text
-@regression
-
-```
-
-### End-to-End Tests
+Clone the repository:
 
 ```bash
-npm run test:e2e
+git clone https://github.com/VishmiSiriwardhana/swag-labs-playwright-cucumber.git
 
 ```
 
-Runs scenarios tagged with:
-
-```text
-@e2e
-
-```
-
-### Negative Tests
+Navigate to the project:
 
 ```bash
-npm run test:negative
+cd swag-labs-playwright-cucumber
 
 ```
 
-Runs scenarios tagged with:
-
-```text
-@negative
-
-```
-
-## ⚙️ Installation
-
-### 1. Clone the repository
-
-```bash
-git clone <your-github-repository-url>
-
-```
-
-### 2. Navigate to the project
-
-```bash
-cd "Swag Labs"
-
-```
-
-### 3. Install dependencies
+Install dependencies:
 
 ```bash
 npm install
 
 ```
 
-### 4. Install Playwright browsers
+Install Playwright Chromium:
 
 ```bash
-npx playwright install
+npx playwright install chromium
 
 ```
 
-## ▶️ Running Tests
+---
+
+## 🚀 Running Tests
 
 ### Run the complete test suite
 
@@ -239,28 +245,14 @@ npm run test:negative
 
 ```
 
+---
+
 ## 📊 Test Results
 
-The current test suite contains:
-
-```text
-22 scenarios
-146 steps
-
-```
-
-Latest execution results:
-
-```text
-22 scenarios (22 passed)
-146 steps (146 passed)
-
-```
-
-### Tagged Test Results
+Current test execution results:
 
 
-| Test Suite | Scenarios | Status   |
+| Test Suite | Scenarios | Result   |
 | ---------- | --------- | -------- |
 | Smoke      | 2         | ✅ Passed |
 | Regression | 13        | ✅ Passed |
@@ -269,167 +261,80 @@ Latest execution results:
 | Full Suite | 22        | ✅ Passed |
 
 
-## 📄 HTML Report
+**Full suite:** 22 scenarios and 146 steps passed successfully.
 
-Cucumber generates an HTML report after test execution.
+---
 
-The report is generated at:
+## 📄 Reporting
+
+The framework generates an HTML Cucumber report after test execution.
+
+The generated report is stored under:
 
 ```text
 reports/cucumber-report.html
 
 ```
 
-The `reports` directory is excluded from Git tracking because reports are generated automatically during test execution.
+Generated reports are excluded from version control using `.gitignore`.
 
-## 📸 Failure Screenshots
+Failure screenshots are also generated and excluded from Git tracking.
 
-The framework automatically captures screenshots when a scenario fails.
+---
 
-Screenshots are stored under:
+## 🔄 Continuous Integration
 
-```text
-screenshots/
+GitHub Actions is configured to automatically execute the Cucumber test suite when changes are pushed to the `main` branch or when a pull request is created.
 
-```
-
-The screenshot is also attached to the Cucumber scenario result.
-
-## 🏗️ Framework Design
-
-### Page Object Model
-
-Each major application page has its own Page Object class.
-
-For example:
+### CI Pipeline
 
 ```text
-LoginPage
-InventoryPage
-CartPage
-CheckoutPage
-CheckoutOverviewPage
-OrderConfirmationPage
-ProductDetailsPage
+Code Push / Pull Request
+          ↓
+   Checkout Repository
+          ↓
+      Node.js 24
+          ↓
+     npm ci
+          ↓
+ Install Playwright Chromium
+          ↓
+     npm test
+          ↓
+   Cucumber Test Results
 
 ```
 
-This keeps locators and page-specific actions separate from the test steps and makes the framework easier to maintain.
+The CI pipeline helps ensure that new changes do not introduce regressions.
 
-### Base Page
+---
 
-`BasePage.ts` provides reusable methods such as:
+## 🎯 Framework Features
 
-- Click
-- Fill
-- Get text
-- Wait for visibility
-- Wait for URL
+- ✅ Playwright browser automation
+- ✅ TypeScript
+- ✅ Cucumber BDD
+- ✅ Gherkin feature files
+- ✅ Page Object Model
+- ✅ Reusable Base Page
+- ✅ Custom Cucumber World
+- ✅ Cucumber Hooks
+- ✅ Data-driven testing
+- ✅ Positive and negative testing
+- ✅ Cucumber tags
+- ✅ HTML test reporting
+- ✅ Failure screenshots
+- ✅ Git version control
+- ✅ GitHub repository
+- ✅ GitHub Actions CI/CD
 
-Page Objects extend the base page to reuse these common actions.
-
-### Custom World
-
-Cucumber's custom `World` is used to share:
-
-- Browser
-- Browser context
-- Page
-- Page Objects
-
-between step definitions within a scenario.
-
-### Hooks
-
-Cucumber hooks handle:
-
-- Browser initialization
-- Browser context creation
-- Page creation
-- Page Object initialization
-- Failure screenshots
-- Browser cleanup
-
-## 🗃️ Test Data Management
-
-Test data is separated from the step definitions using JSON files.
-
-### User Data
-
-```text
-src/data/users.json
-
-```
-
-Contains login credentials for different user types.
-
-### Checkout Data
-
-```text
-src/data/checkoutData.json
-
-```
-
-Contains customer information used by checkout scenarios.
-
-This approach keeps test data separate from test logic and makes it easier to add additional test data.
-
-## 🔄 BDD Approach
-
-The framework uses Cucumber's Gherkin syntax to describe application behavior in a readable format.
-
-Example:
-
-```gherkin
-Scenario: Add a product to the shopping cart
-    Given the user is logged in
-    When the user adds "Sauce Labs Backpack" to the cart
-    Then the cart should contain 1 item
-
-```
-
-This allows technical and non-technical stakeholders to understand the expected behavior of the application.
-
-## 🧩 Framework Components
-
-
-| Component         | Purpose                        |
-| ----------------- | ------------------------------ |
-| Playwright        | Browser automation             |
-| TypeScript        | Programming language           |
-| Cucumber          | BDD and test execution         |
-| Gherkin           | Behavior specifications        |
-| Page Object Model | Maintainable page interactions |
-| JSON              | Test data management           |
-| Hooks             | Test lifecycle management      |
-| Custom World      | Shared Cucumber context        |
-| npm scripts       | Test suite execution           |
-| HTML Reporter     | Test reporting                 |
-
-
-## 🔍 Quality Practices Demonstrated
-
-- Page Object Model
-- Reusable base page methods
-- Separation of test logic and test data
-- BDD/Gherkin scenarios
-- Scenario tagging
-- Data-driven testing
-- Positive and negative testing
-- End-to-end testing
-- Failure screenshot capture
-- TypeScript strict mode
-- Reusable Cucumber hooks
-- Organized step definitions
-- HTML test reporting
+---
 
 ## 👩‍💻 Author
 
 **Vishmi Siriwardhana**
 
-Associate QA Engineer
+Software Quality Assurance Engineer
 
-Technologies demonstrated in this project:
-
-**Playwright | TypeScript | Cucumber | BDD | Page Object Model | Automation Testing**
+This project was created as a demonstration of practical web automation testing, BDD, framework design, and CI/CD practices.
 
