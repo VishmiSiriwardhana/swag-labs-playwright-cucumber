@@ -1,5 +1,9 @@
 # Swag Labs – Playwright + TypeScript + Cucumber Automation Framework
 
+
+
+[![Swag Labs Automation Tests]([https://github.com/VishmiSiriwardhana/swag-labs-playwright-cucumber/actions/workflows/ci.yml/badge.svg)](https://github.com/VishmiSiriwardhana/swag-labs-playwright-cucumber/actions/workflows/ci.yml)](https://github.com/VishmiSiriwardhana/swag-labs-playwright-cucumber/actions/workflows/ci.yml/badge.svg)](https://github.com/VishmiSiriwardhana/swag-labs-playwright-cucumber/actions/workflows/ci.yml))
+
 ## 📌 Project Overview
 
 This project is an end-to-end test automation framework developed for the **Swag Labs** web application using **Playwright, TypeScript, and Cucumber BDD**.
@@ -9,6 +13,8 @@ The framework follows the **Page Object Model (POM)** design pattern and include
 The project demonstrates practical automation testing concepts including functional testing, negative testing, data-driven testing, tagging, reusable components, and continuous integration.
 
 ---
+
+
 
 ## 🛠️ Technology Stack
 
@@ -28,6 +34,8 @@ The project demonstrates practical automation testing concepts including functio
 
 ---
 
+
+
 ## 🏗️ Framework Architecture
 
 The framework follows the **Page Object Model (POM)** architecture.
@@ -45,6 +53,8 @@ Swag Labs Application
 
 ```
 
+
+
 ### Main Components
 
 - **Feature Files** – Define test scenarios using Gherkin syntax.
@@ -57,6 +67,8 @@ Swag Labs Application
 - **GitHub Actions** – Automatically executes the test suite in CI.
 
 ---
+
+
 
 ## 📂 Project Structure
 
@@ -121,6 +133,8 @@ swag-labs-playwright-cucumber/
 
 ---
 
+
+
 ## 🧪 Test Coverage
 
 The framework covers the following functional areas:
@@ -132,6 +146,8 @@ The framework covers the following functional areas:
 - Locked-out user validation
 - Data-driven login testing
 
+
+
 ### 🛒 Shopping Cart
 
 - Add products to cart
@@ -139,6 +155,8 @@ The framework covers the following functional areas:
 - Add multiple products
 - Remove products from cart
 - Verify cart item count
+
+
 
 ### 📦 Product Inventory
 
@@ -148,6 +166,8 @@ The framework covers the following functional areas:
 - Verify product name
 - Verify product description
 - Verify product price
+
+
 
 ### 💳 Checkout
 
@@ -160,6 +180,8 @@ The framework covers the following functional areas:
 - Verify order confirmation
 
 ---
+
+
 
 ## 🏷️ Test Tags
 
@@ -175,6 +197,8 @@ Cucumber tags are used to organize test execution.
 
 
 ---
+
+
 
 ## ▶️ Installation
 
@@ -199,16 +223,19 @@ npm install
 
 ```
 
-Install Playwright Chromium:
+Install Playwright browsers:
 
 ```bash
-npx playwright install chromium
-
+npx playwright install chromium firefox webkit
 ```
 
 ---
 
+
+
 ## 🚀 Running Tests
+
+
 
 ### Run the complete test suite
 
@@ -217,12 +244,16 @@ npm test
 
 ```
 
+
+
 ### Run smoke tests
 
 ```bash
 npm run test:smoke
 
 ```
+
+
 
 ### Run regression tests
 
@@ -231,12 +262,16 @@ npm run test:regression
 
 ```
 
+
+
 ### Run end-to-end tests
 
 ```bash
 npm run test:e2e
 
 ```
+
+
 
 ### Run negative tests
 
@@ -246,6 +281,8 @@ npm run test:negative
 ```
 
 ---
+
+
 
 ## 📊 Test Results
 
@@ -265,6 +302,8 @@ Current test execution results:
 
 ---
 
+
+
 ## 📄 Reporting
 
 The framework generates an HTML Cucumber report after test execution.
@@ -282,6 +321,8 @@ Failure screenshots are also generated and excluded from Git tracking.
 
 ---
 
+
+
 ## 🔄 Continuous Integration
 
 GitHub Actions is configured to automatically execute the Cucumber test suite when changes are pushed to the `main` branch or when a pull request is created.
@@ -297,7 +338,7 @@ Code Push / Pull Request
           ↓
      npm ci
           ↓
- Install Playwright Chromium
+ Install Playwright Browser
           ↓
      npm test
           ↓
@@ -308,6 +349,8 @@ Code Push / Pull Request
 The CI pipeline helps ensure that new changes do not introduce regressions.
 
 ---
+
+
 
 ## 🎯 Framework Features
 
@@ -327,8 +370,13 @@ The CI pipeline helps ensure that new changes do not introduce regressions.
 - ✅ Git version control
 - ✅ GitHub repository
 - ✅ GitHub Actions CI/CD
+- ✅ Cross-browser testing (Chromium, Firefox, WebKit)
+- ✅ GitHub Actions matrix testing
+- ✅ CI test reports and failure screenshots as artifacts
 
 ---
+
+
 
 ## 👩‍💻 Author
 
@@ -337,4 +385,3 @@ The CI pipeline helps ensure that new changes do not introduce regressions.
 Software Quality Assurance Engineer
 
 This project was created as a demonstration of practical web automation testing, BDD, framework design, and CI/CD practices.
-
