@@ -40,3 +40,17 @@ jobs:
         run: npm test
         env:
           BROWSER: ${{ matrix.browser }}
+
+      - name: Upload Cucumber report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-report-${{ matrix.browser }}
+          path: reports/cucumber-report.html
+
+      - name: Upload failure screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-screenshots-${{ matrix.browser }}
+          path: screenshots/
