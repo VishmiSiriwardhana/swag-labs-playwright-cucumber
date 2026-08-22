@@ -18,8 +18,11 @@ export class LoginPage extends BasePage {
   }
 
   async navigate(): Promise<void> {
-    await this.page.goto(config.baseUrl);
-  }
+    await this.page.goto(config.baseUrl, {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000
+    });
+  }  
 
   async login(username: string, password: string): Promise<void> {
     await this.fill(this.usernameInput, username);
